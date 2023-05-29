@@ -16,12 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 7.0.x
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.1
 
     - name: Build app for release
-      run: msbuild PWC_LayoutProcessing/PWC_LayoutProcessing/PWC_LayoutProcessing.sqlproj -t:rebuild -verbosity:diag -property:Configuration=Release
+      run: msbuild PWC_LayoutProcessing/PWC_LayoutProcessing/PWC_LayoutProcessing.sqlproj -t:rebuild -verbosity:normal -property:Configuration=Release
