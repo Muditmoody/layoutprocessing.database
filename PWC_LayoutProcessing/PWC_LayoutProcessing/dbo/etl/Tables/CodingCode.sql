@@ -1,0 +1,10 @@
+﻿
+CREATE TABLE [etl].[CodingCode]
+(
+	[Id] INT NOT NULL IDENTITY(1,1),
+	[Coding] VARCHAR(255) NOT NULL,
+	[CodingText] VARCHAR(255) NOT NULL,
+
+	CONSTRAINT PK_CodingCode PRIMARY KEY (Id),
+	CONSTRAINT U_CodingCode UNIQUE (Coding)
+)

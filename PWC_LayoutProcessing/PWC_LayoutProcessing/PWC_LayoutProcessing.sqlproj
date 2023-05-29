@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>PWC_LayoutProcessing</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{3b7a79f9-1df1-4651-95fd-b069ccf2a357}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>PWC_LayoutProcessing</RootNamespace>
+    <AssemblyName>PWC_LayoutProcessing</AssemblyName>
+    <ModelCollation>1033, CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo" />
+    <Folder Include="dbo\source" />
+    <Folder Include="dbo\model" />
+    <Folder Include="dbo\report" />
+    <Folder Include="dbo\postdeployment" />
+    <Folder Include="dbo\postdeployment\etl" />
+    <Folder Include="dbo\etl" />
+    <Folder Include="dbo\etl\DataSeed" />
+    <Folder Include="dbo\etl\Tables" />
+    <Folder Include="dbo\etl\Views" />
+    <Folder Include="dbo\schema" />
+    <Folder Include="dbo\model\Tables" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\etl\Tables\CauseCode.sql" />
+    <Build Include="dbo\etl\Tables\CodeGroup.sql" />
+    <Build Include="dbo\etl\Tables\CodingCode.sql" />
+    <Build Include="dbo\etl\Tables\DamageCode.sql" />
+    <Build Include="dbo\etl\Tables\EngineProgram.sql" />
+    <Build Include="dbo\etl\Tables\LayoutType.sql" />
+    <Build Include="dbo\etl\Tables\TaskCode.sql" />
+    <Build Include="dbo\schema\source.sql" />
+    <Build Include="dbo\etl\Tables\Material.sql" />
+    <Build Include="dbo\etl\Tables\TaskStatus.sql" />
+    <Build Include="dbo\etl\Tables\LayoutProcessingTasks.sql" />
+    <Build Include="dbo\etl\Tables\SupplierVendor.sql" />
+    <Build Include="dbo\etl\Tables\TaskOwner.sql" />
+    <Build Include="dbo\etl\Tables\Category.sql" />
+    <Build Include="dbo\etl\Tables\PlanningTaskCode.sql" />
+    <Build Include="dbo\etl\Tables\InactiveTask.sql" />
+    <Build Include="dbo\schema\model.sql" />
+    <Build Include="dbo\model\Tables\CleanModelInput.sql" />
+    <Build Include="dbo\model\Tables\GroupTaskCodeMatchMap.sql" />
+    <Build Include="dbo\model\Tables\SimilarityScore.sql" />
+    <Build Include="dbo\model\Tables\TaskDurationPrediction.sql" />
+    <Build Include="dbo\etl\Tables\InactiveItemConfig.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PWC_LayoutProcessing.publish.xml" />
+    <None Include="dbo\etl\DataSeed\CauseCode.merge.data.sql" />
+    <None Include="dbo\etl\DataSeed\CodeGroup.merge.data.sql" />
+    <None Include="dbo\etl\DataSeed\CodingCode.merge.data.sql" />
+    <None Include="dbo\etl\DataSeed\DamageCode.merge.data.sql" />
+    <None Include="dbo\etl\DataSeed\TaskCode.merge.data.sql" />
+    <None Include="dbo\etl\DataSeed\TaskStatus.merge.data.sql" />
+    <None Include="dbo\etl\DataSeed\InactiveItemConfig.merge.data.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="dbo\postdeployment\etl\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\schema\etl.sql" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,8 @@
+﻿CREATE TABLE [etl].[TaskOwner]
+(
+	[Id]				INT NOT NULL IDENTITY(1,1),
+	[TaskOwner_Id]	VARCHAR(255) NOT NULL,
+
+	CONSTRAINT PK_TaskOwner PRIMARY KEY (Id),
+	CONSTRAINT U_TO UNIQUE (TaskOwner_Id)
+)
